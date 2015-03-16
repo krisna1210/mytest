@@ -101,10 +101,7 @@ public class CustPsyche {
 			List<String> NodeList = new ArrayList<String>();
 			List<String> CallMenuList = new ArrayList<String>();			
 			for (Text val : values) {
-			//	context.write(new Text("val "+val.toString()), NullWritable.get());
-			//	context.write(new Text("val "+MenuList.contains(val.toString())), NullWritable.get());
 				if (MenuList.contains(val.toString())) {
-					//context.write(new Text("val "+CallMenuList.contains(val.toString())), NullWritable.get());
 					if(!CallMenuList.contains(val.toString()))
 					{
 						CallMenuList.add(val.toString());
