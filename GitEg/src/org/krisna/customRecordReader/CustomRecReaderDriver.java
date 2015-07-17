@@ -21,12 +21,17 @@ public class CustomRecReaderDriver extends Configured implements Tool{
 		  @Override
 		  public int run(String[] arg0) throws Exception {
 			Job job = Job.getInstance(getConf());
-		    job.setOutputKeyClass(Text.class);
+		    
+			job.setOutputKeyClass(Text.class);
 		    job.setOutputValueClass(IntWritable.class);
+		    
 		    job.setJarByClass(CustomRecReaderDriver.class);
+		    
 		    job.setMapperClass(CustomRecReaderMapper.class);
 		    job.setReducerClass(CustomRecReaderReducer.class);
+		    
 		    job.setInputFormatClass(NLinesInputFormat.class);
+		    
 		    FileInputFormat.addInputPath(job, new Path(arg0[0]));
 		    FileOutputFormat.setOutputPath(job,new Path(arg0[1]));
 		    job.submit();
